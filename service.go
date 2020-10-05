@@ -378,14 +378,14 @@ func NewFrameBufferWithOptions(options FrameBufferOptions) (*FrameBuffer, error)
 		return nil, errors.New("timeout waiting for Xvfb")
 	}
 
-	xauth := exec.Command("xauth", "generate", ":"+display, ".", "trusted")
-	xauth.Stderr = os.Stderr
-	xauth.Stdout = os.Stdout
-	xauth.Env = append(xauth.Env, "XAUTHORITY="+authPath)
-
-	if err := xauth.Run(); err != nil {
-		return nil, err
-	}
+//	xauth := exec.Command("xauth", "generate", ":"+display, ".", "trusted")
+//	xauth.Stderr = os.Stderr
+//	xauth.Stdout = os.Stdout
+//	xauth.Env = append(xauth.Env, "XAUTHORITY="+authPath)
+//
+//	if err := xauth.Run(); err != nil {
+//		return nil, err
+//	}
 
 	return &FrameBuffer{display, authPath, xvfb}, nil
 }
